@@ -1,6 +1,6 @@
 # student-directory
 
-# ${1:Student Directory}
+#  Student Directory
 TODO: Write a project description
 ## Contributing
 1. Fork it!
