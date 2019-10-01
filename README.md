@@ -1,7 +1,5 @@
 # student-directory
 
-<snippet>
-  <content><![CDATA[
 # ${1:Student Directory}
 TODO: Write a project description
 ## Contributing
@@ -16,6 +14,3 @@ TODO: Write history
 TODO: Write credits
 ## License
 TODO: Write license
-]]></content>
-  <tabTrigger>readme</tabTrigger>
-</snippet>
