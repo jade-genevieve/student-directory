@@ -11,6 +11,16 @@ def input_students
     age = gets.chomp
     # while the name is not empty, repeat this code
     while !name.empty? do  
+        # default for cohort if empty
+        if cohort.empty?
+            cohort = :unknown
+        end
+        
+        # default for age if empty
+        if age.empty?
+            age = "Unknown"
+        end
+
       # add the student hash to the array
       students << {name: name, cohort: cohort, age: age}
       if students.count < 2
@@ -22,7 +32,6 @@ def input_students
       name = gets.chomp
       cohort = gets.chomp.to_sym
       age = gets.chomp
-
     end
     # return the array of students
     students
@@ -38,7 +47,7 @@ def print_header
     index = 0
      while index < students.count do
         if (students[index][:name].start_with? letter) && (students[index][:name].length < 12)
-        puts "#{index+1} - #{students[index][:name]}, #{students[index][:cohort]}, #{students[index][:age]} "
+        puts "#{index+1} - #{students[index][:name]}, #{students[index][:cohort]}, #{students[index][:age]} ".center(50)
      end
      index +=1
     end
