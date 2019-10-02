@@ -5,13 +5,19 @@ def input_students
     students = []
     # get the first name
     name = gets.chomp
+    cohort = gets.chomp.to_sym
     # while the name is not empty, repeat this code
     while !name.empty? do  
       # add the student hash to the array
-      students << {name: name, cohort: :november}
-      puts "Now we have #{students.count} students"
+      students << {name: name, cohort: cohort}
+      if students.count < 2
+        puts "Only 1 student here"
+      else 
+      puts "Now we have #{students.count} students".center(40)
+      end
       # get another name from the user
       name = gets.chomp
+      cohort = gets.chomp.to_sym
     end
     # return the array of students
     students
@@ -23,15 +29,31 @@ def print_header
     puts "-------------"
   end
 
+#   def print(students, letter)
+#     students.select { |student| student[:name][0] == letter && student[:name].length < 12}
+#     .each_with_index do |student, index|  
+    #   puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)"
+#     end
+#   end
+
   def print(students, letter)
-    students.select { |student| student[:name][0] == letter && student[:name].length < 12}
-    .each_with_index do |student, index|  
-      puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)"
+    index = 0
+     while index < students.count do
+        if (students[index][:name].start_with? letter) && (students[index][:name].length < 12)
+        puts "#{index+1} - #{students[index][:name]}, #{students[index][:cohort]}"
+     end
+     index +=1
     end
   end
+
+
 # total students here
 def print_footer(names)
-    puts "Overall, we have #{names.count} great students"
+    if names.count < 2
+        puts "Teaching one student"
+    else
+        puts "Overall, we have #{names.count} great students"
+    end
 end
 
 students = input_students
