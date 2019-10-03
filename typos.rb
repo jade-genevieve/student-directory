@@ -5,6 +5,7 @@ def input_students
     students = []
     # get the first name
     name = gets.chomp
+
     # while the name is not empty, repeat this code
     while !name.empty? do
     # add the student hash to the array
@@ -17,16 +18,20 @@ def input_students
     students
   end
   
-  def print_header
+  def print_header(students)
+    if students.length > 0
     puts "The students of my cohort at Makers Academy"
     puts "-------------"
+    end
   end
   
   def print(students)
     students.each do |student|
       puts "#{student[:name]} (#{student[:cohort]} cohort)"
     end
-  end
+end
+
+
   
   def print_footer(names)
     puts "Overall, we have #{names.count} great students"
@@ -34,6 +39,6 @@ def input_students
   
   
   students = input_students
-  print_header
+  print_header(students)
   print(students)
   print_footer(students)
